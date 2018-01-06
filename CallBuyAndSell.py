@@ -20,17 +20,23 @@ def ChoiseToAmountToBuy(AccountRatio,NowPrice,flag):
 
     objTrade5331A.SetInputValue(0, AccountNumber)
     objTrade5331A.SetInputValue(1, "01")
+    objTrade5331A.SetInputValue(2, 'A233740')
+    objTrade5331A.SetInputValue(3, '03')
+    objTrade5331A.SetInputValue(4, NowPrice)
+    objTrade5331A.SetInputValue(6, 2)
     objTrade5331A.BlockRequest()
 
+    AbleToBuy = objTrade5331A.GetHeaderValue(17) # 현금 주문 가능수량
     Amount = objTrade5331A.GetHeaderValue(45) # 잔고 호출
-    StockRatio = int(Amount * AccountRatio)
-    StockAmount = int(StockRatio / NowPrice - 1)
+
+    StockAmount = int(AbleToBuy * AccountRatio)
     
    # Flag 변수를 이용하여 출력값을 선택한다.
     if(flag == 0):
         print('계좌 :', AccountNumber)
         print('현재 잔고 :', Amount)
-        print('주문금액 :', StockRatio)
+
+        print('주문 가능 수량 :', AbleToBuy)
         print('주문 수량 :', StockAmount)
 
     elif(flag == 1):

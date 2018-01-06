@@ -84,10 +84,10 @@ if __name__ == "__main__":
             except:
                 print("매수를 실행하지 않았습니다. 매도도 실행하지 않습니다.\n")
 
-        elif now.tm_hour == 15 and now.tm_min == 19 and now.tm_sec == 20:
+        elif now.tm_hour == 15 and now.tm_min == 21 and now.tm_sec == 30:
             WatchPrice.MakeExcelFile()
 
-        elif now.tm_hour == 15 and now.tm_min == 20 and now.tm_sec == 3:
+        elif now.tm_hour == 15 and now.tm_min == 23 and now.tm_sec == 3:
             HowMuchBuy(WatchPrice.NowPrice(0),2)
             Ratio = HowMuchBuy(WatchPrice.NowPrice(0),1)
             CallBuyAndSell.ChoiseToAmountToBuy(Ratio,WatchPrice.NowPrice(0),0)        
@@ -97,7 +97,7 @@ if __name__ == "__main__":
             savetosell(CallBuyAndSell.ChoiseToAmountToBuy(Ratio,WatchPrice.NowPrice(0),1),0)
             print('매수수량 :',savetosell(CallBuyAndSell.ChoiseToAmountToBuy(Ratio,WatchPrice.NowPrice(0),1),1))
         
-        elif now.tm_hour == 15 and now.tm_min == 21 and now.tm_sec == 3:
+        elif now.tm_hour == 15 and now.tm_min == 24 and now.tm_sec == 3:
             print("프로그램을 종료합니다.")
             break;
 
@@ -105,3 +105,4 @@ if __name__ == "__main__":
             TimeandPrice()
 
         time.sleep(1)
+     
